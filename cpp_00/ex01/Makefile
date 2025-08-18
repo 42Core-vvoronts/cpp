@@ -7,16 +7,27 @@ PEDANT				=	-Wpedantic
 RM					=	rm -rf
 
 # Name of the output library
-NAME				=	megaphone
+NAME				=	phonebook
+
+# Source directories
+VPATH				=	\
+						./src/: \
+
+# Include directories
+INCLUDE_DIRS		=	\
+						./include \
 
 # Source files
 SRC 				=	\
-						megaphone.cpp
-						\
+						main.cpp \
+						Contact.cpp \
+						PhoneBook.cpp \
 
 # Object and Dependency files
 OBJ					= $(SRC:%.cpp=obj/%.o)
 DEP					= $(SRC:%.cpp=dep/%.d)
+
+INCLUDE				=	$(addprefix -I, $(INCLUDE_DIRS))
 
 # Make flags
 MFLAGS				=	 --no-print-directory -C
@@ -32,7 +43,7 @@ $(NAME): $(OBJ)
 
 # Compile mandatory object files
 obj/%.o: %.cpp | obj_dir dep_dir
-	@$(CPP) $(CPPFLAGS) $(DEBUG) $(PEDANT) $(DEPFLAGS) dep/$(@:obj/%.o=%.d) -c $< -o $@ && printf "$(GRAY)Compiling: $(RESET)$(notdir $< \n)"
+	@$(CPP) $(CPPFLAGS) $(INCLUDE) $(DEBUG) $(PEDANT) $(DEPFLAGS) dep/$(@:obj/%.o=%.d) -c $< -o $@ && printf "$(GRAY)Compiling: $(RESET)$(notdir $< \n)"
 
 # Create mandatory object directories
 obj_dir:
