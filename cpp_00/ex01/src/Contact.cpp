@@ -6,7 +6,11 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 15:01:05 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/08/17 17:55:48 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/08/27 14:20:22 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
+#include "main.h"
 

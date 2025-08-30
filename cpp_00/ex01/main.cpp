@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 15:01:12 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/08/18 10:49:54 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/08/27 14:31:41 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,32 @@
 #include "PhoneBook.hpp"
 #include "main.h"
 
-void search()
+void	print_contact(void)
 {
-	std::cout << "Searching for contacts..." << std::endl;
-	// Implement search functionality here
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
+	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
+	
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
 }
 
-void add()
+/**
+ * Search for an existing contact
+ * @param
+ * @return
+ */
+void search()
+{
+	std::cout << PROMPT, std::cout << SEARCHING << std::endl;
+    std::getline(std::cin, index);
+	showContact(index);
+}
+
+/**
+ * Add a new contact
+ * @param 
+ */
+void add(PhoneBook& phoneBook)
 {
     std::string name, lastname, nickname, phone, secret;
 
@@ -36,13 +55,20 @@ void add()
     std::cout << PROMPT, std::cout << SECRET;
     std::getline(std::cin, secret);
 	// add contact
+	phoneBook.addContact(name, lastname, nickname, phone, secret);
     std::cout << SUCCESS << std::endl;
 }
 
-// ADD SEARCH EXIT 
+/**
+ * Main function
+ * @return 0 on success
+ */
 int main()
 {
 	std::string command;
+	PhoneBook phoneBook;
+	
+	
 
 	std::cout << HELLO << std::endl;
 	std::cout << HELP << std::endl;
@@ -51,13 +77,14 @@ int main()
 		std::cout << PROMPT, std::cout << ENTER_COMMAND;
 		std::getline(std::cin, command);
 		if (command == ADD)
-			add();
+			add(phoneBook);
 		else if (command == SEARCH)
-			std::cout << "search";
+			search();
 		else if (command == EXIT)
 		{
 			std::cout << BYE << std::endl;
 			break;
 		}
 	}
+	return 0;
 }
