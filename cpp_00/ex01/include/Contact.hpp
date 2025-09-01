@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 15:01:09 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/08/27 14:28:15 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/01 14:21:14 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,31 @@
 # define CONTACT_HPP
 #include "main.h"
 
-class Contact
-{
+class Contact {
 	public:
-		void setFirstName(const std::string& firstName);
-		void setLastName(const std::string& lastName);
-		void setNickname(const std::string& nickname);
-		void setPhoneNumber(const std::string& phoneNumber);
-		void setDarkestSecret(const std::string& darkestSecret);
+		Contact(); // Constructor
+		~Contact(); // Destructor
+
+		//Settters
+		void setFirstName(std::string firstName);
+		void setLastName(std::string lastName);
+		void setNickName(std::string nickName);
+		void setPhoneNumber(std::string phoneNumber);
+		void setDarkestSecret(std::string darkestSecret);
+
+		// Getters
+		std::string getFirstName(void);
+		std::string getLastName(void);
+		std::string getNickName(void);
+		std::string getPhoneNumber(void);
+		std::string getDarkestSecret(void);
+	
 	private:
-		std::string	_firstName;
-		std::string	_lastName;
-		std::string	_nickname;
-		std::string	_phoneNumber;
-		std::string	_darkestSecret;
+		std::string _firstName;
+		std::string _lastName;
+		std::string _nickName;
+		std::string _phoneNumber;
+		std::string _darkestSecret;	
 };
 
 #endif
