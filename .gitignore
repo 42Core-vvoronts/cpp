@@ -1,0 +1,5 @@
+# ignore executables, .o and .d
+*.o
+*.d
+*.exe
+a.out
