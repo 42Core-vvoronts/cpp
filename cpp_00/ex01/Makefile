@@ -20,7 +20,7 @@ INCLUDE_DIRS		=	\
 
 # Source files
 SRC 				=	\
-						main.cpp \
+						Main.cpp \
 						Contact.cpp \
 						PhoneBook.cpp \
 						DisplayContact.cpp \
