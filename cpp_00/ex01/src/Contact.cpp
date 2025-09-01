@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 15:01:05 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/01 16:54:26 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/01 20:09:52 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 Contact::Contact()
 {
-	std::cout << "A Contact has been constructed." << std::endl;
+	// std::cout << "A Contact has been constructed." << std::endl;
 }
 
 Contact::~Contact()
 {
-	std::cout << "A Contact has been destructed." << std::endl;
+	// std::cout << "A Contact has been destructed." << std::endl;
 }
 
 // Getters

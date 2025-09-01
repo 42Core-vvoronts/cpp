@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:21:31 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/01 19:51:13 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/01 20:39:19 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,32 @@
  */
 void PhoneBook::searchContact(void)
 {
-	int	index;
+	int	index = 0;
 	bool isempty;
 
 	isempty = displayPhoneBook();
 	if (isempty)
 		return ;
 	
-	std::cout << PROMPT, std::cout << SEARCHING;
-	std::cin >> index;
-	displayContactDetails(this->_contacts[index]);
+	while (index < 1 || index > _contactCount)
+	{
+		std::cout << PROMPT, std::cout << SEARCHING;
+		std::cin >> index;
+
+		// check if cin fails with huge input
+		if (std::cin.fail())
+		{
+			std::cout << INVALID_INPUT << std::endl;
+			std::cin.clear(); // Clear the fail state
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Remove the bad input
+			continue; // Restart the loop immediately
+		}
+		if (index >= 1 && index <= _contactCount)
+		{
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			break ;
+		}
+		std::cout << INVALID_INDEX << std::endl;
+	}
+	displayContactDetails(this->_contacts[index-1]);
 }
