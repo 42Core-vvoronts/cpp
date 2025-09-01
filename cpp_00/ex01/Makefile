@@ -12,6 +12,7 @@ NAME				=	phonebook
 # Source directories
 VPATH				=	\
 						./src/: \
+						./src/utils: \
 
 # Include directories
 INCLUDE_DIRS		=	\
@@ -22,6 +23,15 @@ SRC 				=	\
 						main.cpp \
 						Contact.cpp \
 						PhoneBook.cpp \
+						DisplayContact.cpp \
+						AddContact.cpp \
+						SearchContact.cpp \
+						\
+						align.cpp \
+						printEmpty.cpp \
+						printBook.cpp \
+						promptDetails.cpp \
+						setContact.cpp \
 
 # Object and Dependency files
 OBJ					= $(SRC:%.cpp=obj/%.o)
