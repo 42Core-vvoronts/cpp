@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 18:43:35 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/01 18:53:44 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/02 11:25:21 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,17 @@
  *
  * @retval void
  */
-void printBook(Contact *contacts, int index)
+void printBook(Contact *contacts, int contactCount)
 {
-	std::cout << "|";
-	std::stringstream itoa;
-	itoa << (index + 1);
-	align(itoa.str(), WIDTH);
-	align(contacts[index].getFirstName(), WIDTH);
-	align(contacts[index].getLastName(), WIDTH);
-	align(contacts[index].getNickName(), WIDTH);
-	std::cout << std::endl;
+	for (int i = 0; i < contactCount; i++)
+	{
+		std::cout << "|";
+		std::stringstream itoa;
+		itoa << (i + 1);
+		align(itoa.str(), WIDTH);
+		align(contacts[i].getFirstName(), WIDTH);
+		align(contacts[i].getLastName(), WIDTH);
+		align(contacts[i].getNickName(), WIDTH);
+		std::cout << std::endl;
+	}
 }
