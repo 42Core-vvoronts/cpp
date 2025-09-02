@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 15:02:43 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/01 16:00:10 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/02 12:14:23 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,20 @@
 class PhoneBook
 {
 	public:
+		// Constructors
 		PhoneBook();
 		~PhoneBook();
-
+		// Getters, setters
+		int					getContactCount(void);
+		int					getContactIndex(void);
+		int					getMaxContacts(void);
+		Contact*			getContactsArray(void);
+		void				setContactCount(int count);
+		void				setContactIndex(int index);
+		void				setContact(Contact& contact, int index);
+		// Methods
 		void				addContact(void);
 		void				searchContact(void);
-		int					getContactCount(void);
-		bool				displayPhoneBook(void);
-		void				displayContactDetails(Contact& contact);
 
 	private:
 		static const int	_maxContacts = 8;

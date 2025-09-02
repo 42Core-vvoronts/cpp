@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   Printer.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 10:29:16 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/02 12:05:14 by vvoronts         ###   ########.fr       */
+/*   Created: 2025/09/02 12:09:51 by vvoronts          #+#    #+#             */
+/*   Updated: 2025/09/02 12:35:04 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef PRINTER_HPP
+# define PRINTER_HPP
 
-#include <iostream>
-#include <string>
-#include <sstream> //to convert int to string
-#include <stdlib.h>
-#include <cctype>
-#include <limits>
-#include <vector>
-#include <iomanip>
-
+#include "main.h"
+class PhoneBook;
 class Contact;
 
-#define WIDTH 10
+class Printer
+{
+public:
+	Printer();
+	~Printer();
 
-void align(std::string str, unsigned int width);
-void printEmptyBook(void);
-void printBook(Contact *contacts, int index);
-void promptForDetails(Contact& contact);
-void printHeader();
-
-
-
+	bool displayPhoneBook(PhoneBook& phoneBook);
+	void displayContactDetails(Contact& contact);
+	
+};
 
 #endif
