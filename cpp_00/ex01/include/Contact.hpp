@@ -6,12 +6,12 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 15:01:09 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/02 12:53:37 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/02 14:21:36 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#ifndef __CONTACT_HPP__
+# define __CONTACT_HPP__
 
 #include <string>
 

@@ -6,12 +6,12 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 20:29:16 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/02 14:03:40 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/02 14:22:07 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRETTY_PRINT_H
-# define PRETTY_PRINT_H
+#ifndef __PRETTY_PRINT_H__
+# define __PRETTY_PRINT_H__
 
 #include <Contact.hpp>
 #include <string>

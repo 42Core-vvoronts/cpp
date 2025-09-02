@@ -6,12 +6,12 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 15:02:43 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/02 12:59:22 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/02 14:21:59 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONE_BOOK_HPP
-# define PHONE_BOOK_HPP
+#ifndef __PHONE_BOOK_HPP__
+# define __PHONE_BOOK_HPP__
 
 #include "Contact.hpp"
 #include <iostream> //cin, cout
