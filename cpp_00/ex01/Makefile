@@ -23,15 +23,13 @@ SRC 				=	\
 						Main.cpp \
 						Contact.cpp \
 						PhoneBook.cpp \
-						DisplayContact.cpp \
-						AddContact.cpp \
-						SearchContact.cpp \
+						Printer.cpp \
 						\
 						align.cpp \
 						printEmpty.cpp \
 						printBook.cpp \
+						printHeader.cpp \
 						promptDetails.cpp \
-						setContact.cpp \
 
 # Object and Dependency files
 OBJ					= $(SRC:%.cpp=obj/%.o)
