@@ -6,14 +6,12 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 15:02:39 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/02 12:35:17 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/02 12:59:46 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
 #include "PhoneBook.hpp"
 #include "Printer.hpp"
-#include "PrettyPrint.h"
 #include "main.h"
 
 PhoneBook::PhoneBook()
@@ -113,14 +111,14 @@ void PhoneBook::searchContact(void)
 void PhoneBook::addContact(void)
 {
 	Contact		contact;
-	const int	max = getMaxContacts();
+	const int	maxContacts = getMaxContacts();
 	int			index = getContactIndex();
 	int			total = getContactCount();
 
 	promptForDetails(contact);
 	setContact(contact, index);
-	setContactIndex((index + 1) % max);
-	if (total < max)
+	setContactIndex((index + 1) % maxContacts);
+	if (total < maxContacts)
 		setContactCount(total + 1);
 
     std::cout << SUCCESS << std::endl;

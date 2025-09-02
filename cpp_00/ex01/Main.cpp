@@ -6,13 +6,13 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 15:01:12 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/01 20:36:05 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/02 12:53:03 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "main.h"
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
-#include "main.h"
 #include "PrettyPrint.h"
 
 /**

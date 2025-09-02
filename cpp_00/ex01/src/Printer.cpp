@@ -6,15 +6,14 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 12:13:38 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/02 12:37:23 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:13:00 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Printer.hpp"
+#include "PrettyPrint.h"
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
-#include "main.h"
-#include "PrettyPrint.h"
 
 Printer::Printer() {}
 Printer::~Printer() {}

@@ -6,14 +6,21 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 20:29:16 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/02 12:04:42 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/02 14:03:40 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRETTY_PRINT_H
 # define PRETTY_PRINT_H
 
+#include <Contact.hpp>
+#include <string>
+#include <iostream>
+#include <iomanip> // set width
+#include <sstream> // stringstream
+
 // Colors and messages
+#define WIDTH 10
 #define PROMPT  "\033[94m>\033[0m "
 #define ENTER_COMMAND "Enter command: "
 #define HELLO "\n☎️ \033[94mWelcome to the PhoneBook!\033[0m\n"
@@ -31,8 +38,14 @@
 #define PHONE "Phone Number: "
 #define SECRET "Darkest Secret: "
 #define SEARCHING "Enter index: "
+#define BOOK_IS_EMPTY "\033[93m:(\033[0m PhoneBook is empty, start adding contacts!"
 #define SUCCESS "\033[92mSuccess!\033[0m"
 #define HELP "Available commands:\n  ADD — Create a new contact entry\n  SEARCH — Find an existing contact\n  EXIT — Close the application\n"
 #define ROW "+----------+----------+----------+----------+"
+// Functions
+void align(std::string str, unsigned int width);
+void printEmptyBook(void);
+void printBook(Contact *contacts, int index);
+void printHeader();
 
 #endif

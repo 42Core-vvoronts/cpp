@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:58:58 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/02 12:05:42 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:57:25 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 void printEmptyBook(void)
 {	
 	std::cout << "|";
-	align("PhoneBook is empty :(", WIDTH * 4 + 3);
+	align("", WIDTH * 4 + 3);
 	std::cout << std::endl << ROW << std::endl;
+	std::cout << BOOK_IS_EMPTY << std::endl;
 }

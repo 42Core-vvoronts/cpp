@@ -6,14 +6,14 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 12:09:51 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/02 12:35:04 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:14:20 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRINTER_HPP
 # define PRINTER_HPP
 
-#include "main.h"
+#include "PrettyPrint.h"
 class PhoneBook;
 class Contact;
 
@@ -25,7 +25,6 @@ public:
 
 	bool displayPhoneBook(PhoneBook& phoneBook);
 	void displayContactDetails(Contact& contact);
-	
 };
 
 #endif

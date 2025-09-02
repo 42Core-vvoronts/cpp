@@ -6,33 +6,18 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 10:29:16 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/02 12:05:14 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:14:35 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAIN_H
 # define MAIN_H
 
-#include <iostream>
 #include <string>
-#include <sstream> //to convert int to string
-#include <stdlib.h>
-#include <cctype>
-#include <limits>
-#include <vector>
-#include <iomanip>
+#include <iostream>
 
 class Contact;
 
-#define WIDTH 10
-
-void align(std::string str, unsigned int width);
-void printEmptyBook(void);
-void printBook(Contact *contacts, int index);
 void promptForDetails(Contact& contact);
-void printHeader();
-
-
-
 
 #endif

@@ -6,11 +6,12 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:50:13 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/01 16:51:00 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:16:48 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
+#include "PrettyPrint.h"
 
 /**
  * Align string display by width
