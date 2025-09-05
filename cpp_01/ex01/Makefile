@@ -7,7 +7,7 @@ PEDANT				=	-Wpedantic
 RM					=	rm -rf
 
 # Name of the output library
-NAME				=	zombies
+NAME				=	horde
 
 # Source directories
 VPATH				=	\
