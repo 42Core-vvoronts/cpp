@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 11:04:57 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/04 11:15:30 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/04 11:26:26 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,20 @@ Harl::~Harl(){
  * @brief Calls the method based on the level
  *
  * The goal of this exercise is to use pointers to member functions
+ *
+ * void (Harl::*)(void) pointer to a Harl member function returning void and taking no params
+ * fptr[i] holds which Harl method to call
+ * (this->*fptr[i])() executes method
+ * { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error } initializes addresses for each method
+ * 
+ * level == "WARNING", then fptr[i] == &Harl::warning
+ * (this->*fptr[i])(); → this->warning();
  */
 void Harl::complain(std::string level)
 {
 	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int i = 0;
 	void (Harl::*fptr[]) (void) = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-
-	if (i == 4)
-		std::cout << "Error! Wrong level of instruction." << std::endl;
 
 	while (i < 4){
 		if (level == levels[i])
@@ -45,6 +50,9 @@ void Harl::complain(std::string level)
 		}
 		i++;
 	}
+
+	if (i == 4)
+		std::cout << "Error! Wrong level of instruction." << std::endl;
 }
 
 void Harl::debug(void){
