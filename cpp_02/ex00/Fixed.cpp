@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 11:28:38 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/04 11:53:15 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/04 13:34:28 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,61 @@
 #include <iostream>
 
 /**
- * @brief Default constructor initializes fixed-point number to 0
+ * @brief Default constructor 
+ * initializes fixed-point number to 0
 */
-Fixed::Fixed() : _fixedNumber(0) {
+Fixed::Fixed(void) : _value(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
 /**
-* @brief Copy constructor creates a new Fixed object as a copy of an existing one
-* @param constructor Reference to another Fixed object to copy from
+* @brief Copy constructor
+* @param object Reference to another Fixed object to copy from
 * @note Uses the assignment operator to perform the copy
+*
+* Calls the copy assignment operator to avoid code duplication
 * 
 */
-Fixed::Fixed (Fixed &constructor) {
+Fixed::Fixed (const Fixed &object) {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = constructor;
+	*this = object;
 }
 
 /**
- * @brief Copy assignment operator assigns one Fixed object to another.
- * @param src Constant reference to the source Fixed object.
+ * @brief Copy assignment operator overload
+ * @param object Constant reference to the source Fixed object
+ *
+ * Assigns the value of the 'other' object to the current object
+ *
  * @return Reference to the current object (*this).
  */
-Fixed & Fixed::operator=(Fixed const &src){
+Fixed & Fixed::operator=(Fixed const &object){
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &src)
-		_fixedNumber = src.getRawBits();
+	if (this != &object)
+		this->_value = object.getRawBits();
 	return *this;
 }
 
+/**
+ * @brief Destructor
+ */
 Fixed::~Fixed(){
 	std::cout << "Destructor called" << std::endl;
 }
 
+/**
+ * @brief Gets the raw value of the fixed-point number
+ * @return The raw fixed-point value as an integer
+ */
 int Fixed::getRawBits (void) const {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (this->_fixedNumber);
+	return (this->_value);
 }
 
+/**
+ * @brief Sets the raw value of the fixed-point number
+ * @param raw The raw fixed-point value to set
+ */
 void Fixed::setRawBits (int const raw) {
-	this->_fixedNumber = raw;
+	this->_value = raw;
 }
