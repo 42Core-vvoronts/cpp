@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:48:25 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/16 12:48:58 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/16 14:31:01 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ Cat &Cat::operator=(const Cat &src) {
 }
 
 void Cat::makeSound() const {
-	std::cout << "Meow" << std::endl;
+	std::cout << this->type << ": Meow" << std::endl;
 }

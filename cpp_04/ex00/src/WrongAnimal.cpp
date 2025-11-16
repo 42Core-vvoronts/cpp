@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:51:25 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/16 12:52:39 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/16 14:32:27 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src) {
 }
 
 void WrongAnimal::makeSound() const {
-	std::cout << "General WrongAnimal sound" << std::endl;
+	std::cout << this->type << ": General wrong animal sound" << std::endl;
 }
 
 std::string WrongAnimal::getType() const {

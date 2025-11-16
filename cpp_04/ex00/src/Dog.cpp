@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:50:27 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/16 12:59:21 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/16 14:31:44 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ Dog &Dog::operator=(const Dog &src) {
 }
 
 void Dog::makeSound() const {
-	std::cout << "Woof" << std::endl;
+	std::cout << this->type << ": Woof" << std::endl;
 }

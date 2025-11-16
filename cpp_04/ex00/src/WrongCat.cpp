@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:54:22 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/16 12:54:25 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/16 14:31:37 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 WrongCat::WrongCat() {
 	std::cout << "...WrongCat Constructor" << std::endl;
-	this->type = "Cat Impostor";
+	this->type = "WrongCat";
 }
 
 WrongCat::~WrongCat() {
@@ -32,5 +32,5 @@ WrongCat &WrongCat::operator=(const WrongCat &src) {
 }
 
 void WrongCat::makeSound() const {
-	std::cout << "Wrong meow" << std::endl;
+	std::cout << this->type << ": Wrong meow" << std::endl;
 }
