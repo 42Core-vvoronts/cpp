@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 15:01:12 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/02 12:53:03 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/18 22:33:39 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 #include "PhoneBook.hpp"
 #include "PrettyPrint.h"
 
-/**
- * Main function
- * @return 0 on success
- */
 int main()
 {
 	std::string	command;
@@ -28,8 +24,15 @@ int main()
 	std::cout << HELP << std::endl;
 	while(true)
 	{
-		std::cout << PROMPT, std::cout << ENTER_COMMAND;
-		std::getline(std::cin, command);
+		std::cout << PROMPT;
+		std::cout << ENTER_COMMAND;
+		if (!std::getline(std::cin, command))
+		{
+			// This block executes on EOF (Ctrl+D) or other stream error
+			std::cout << std::endl << BYE << std::endl; // exit message
+			break;
+		}
+
 		if (command == ADD)
 			myBook.addContact();
 		else if (command == SEARCH)

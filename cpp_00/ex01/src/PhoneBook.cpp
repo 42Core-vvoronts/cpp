@@ -6,13 +6,15 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 15:02:39 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/09/02 12:59:46 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/18 22:41:44 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Printer.hpp"
 #include "main.h"
+
+int _maxContacts = 8;
 
 PhoneBook::PhoneBook()
 {
@@ -27,24 +29,24 @@ PhoneBook::~PhoneBook()
 }
 
 // Getters
-int	PhoneBook::getContactCount(void)
+int	PhoneBook::getContactCount(void) const
 {
 	return this->_contactCount;
 }
 
-int	PhoneBook::getContactIndex(void)
+int	PhoneBook::getContactIndex(void) const
 {
 	return this->_contactIndex;
 }
 
-int	PhoneBook::getMaxContacts(void)
-{
-	return this->_maxContacts;
-}
+// int	PhoneBook::getMaxContacts(void) const
+// {
+// 	return this->_maxContacts;
+// }
 
-Contact* PhoneBook::getContactsArray(void)
+Contact* PhoneBook::getContactsArray(void) const
 {
-	return this->_contacts;
+	return (Contact*)this->_contacts;
 }
 
 // Setters
@@ -111,7 +113,7 @@ void PhoneBook::searchContact(void)
 void PhoneBook::addContact(void)
 {
 	Contact		contact;
-	const int	maxContacts = getMaxContacts();
+	const int	maxContacts = 8;
 	int			index = getContactIndex();
 	int			total = getContactCount();
 
@@ -121,5 +123,5 @@ void PhoneBook::addContact(void)
 	if (total < maxContacts)
 		setContactCount(total + 1);
 
-    std::cout << SUCCESS << std::endl;
+	std::cout << SUCCESS << std::endl;
 }
