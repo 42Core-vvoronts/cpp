@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 11:28:40 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/17 18:41:59 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/18 21:52:44 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,25 +57,26 @@ class Fixed {
 		Fixed	operator-(const Fixed &fixed) const;
 		Fixed	operator*(const Fixed &fixed) const;
 		Fixed	operator/(const Fixed &fixed) const;
-	
+		// pre
 		Fixed&	operator++(void);
-		Fixed	operator++(int);
 		Fixed&	operator--(void);
+		// post
+		Fixed	operator++(int);
 		Fixed	operator--(int);
 
 		static	Fixed &min(Fixed &fixed1, Fixed &fixed2);
-		static	const Fixed &min(const Fixed &fixed1, const Fixed &fixed2);
 		static	Fixed &max(Fixed &fixed1, Fixed &fixed2);
+		static	const Fixed &min(const Fixed &fixed1, const Fixed &fixed2);
 		static	const Fixed &max(const Fixed &fixed1, const Fixed &fixed2);
 
 		int		getRawBits (void) const;
+		int		getBits (void) const;
 		void	setRawBits (int const raw);
 		float	toFloat (void) const;
-		
 		int		toInt (void) const;
 
 	private:
-		int					_fixedNumber;
+		int					_raw;
 		static int const	_bits = 8;
 };
 
