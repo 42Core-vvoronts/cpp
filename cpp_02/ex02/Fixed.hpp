@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 11:28:40 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/15 23:24:45 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/17 18:41:59 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,12 @@ class Fixed {
 		int		getRawBits (void) const;
 		void	setRawBits (int const raw);
 		float	toFloat (void) const;
+		
 		int		toInt (void) const;
 
 	private:
-		int _fixedNumber;
-		static int const _bits = 8;
+		int					_fixedNumber;
+		static int const	_bits = 8;
 };
 
 // overload << 

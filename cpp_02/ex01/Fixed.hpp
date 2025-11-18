@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 11:28:40 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/04 13:52:16 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/18 21:22:56 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ class Fixed
 		int		toInt(void) const;
 		
 	private:
-		int 				_value;
+		int 				_raw;
 		static int const	_bits = 8;
 };
 

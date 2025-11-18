@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 11:28:34 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/15 23:19:04 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/17 18:56:19 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int main( void )
 	std::cout << b << std::endl;
 	
 	std::cout << Fixed::max( a, b ) << std::endl;
+
+	//my tests
+	//
 
 	return 0;
 }
