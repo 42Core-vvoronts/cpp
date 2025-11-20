@@ -3,7 +3,7 @@ CPP					=	c++
 CPPFLAGS			=	-Wall -Wextra -Werror -std=c++98 -Wunreachable-code
 DEPFLAGS			=	-MMD -MF
 DEBUG				=	-g
-PEDANT				=	-Wpedantic
+# PEDANT				=	-Wpedantic
 RM					=	rm -rf
 
 # Name of the output library
@@ -46,7 +46,7 @@ $(NAME): $(OBJ)
 
 # Compile mandatory object files
 obj/%.o: %.cpp | obj_dir dep_dir
-	@$(CPP) $(CPPFLAGS) $(INCLUDE) $(DEBUG) $(PEDANT) $(DEPFLAGS) dep/$(@:obj/%.o=%.d) -c $< -o $@ && printf "$(GRAY)Compiling: $(RESET)$(notdir $< \n)"
+	@$(CPP) $(CPPFLAGS) $(INCLUDE) $(DEBUG) $(DEPFLAGS) dep/$(@:obj/%.o=%.d) -c $< -o $@ && printf "$(GRAY)Compiling: $(RESET)$(notdir $< \n)"
 
 # Create mandatory object directories
 obj_dir:
