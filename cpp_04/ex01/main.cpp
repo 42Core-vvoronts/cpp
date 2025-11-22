@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:41:52 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/22 18:57:53 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/22 19:10:30 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 #include <iostream>
-
-static void sep(const char *title)
-{
-	std::cout << "\n---- " << title << " ----\n";
-}
 
 // Stack Memory (The Array)          Heap Memory (The Actual Objects)
 // +------------------+             +-----------------------------+
@@ -38,20 +33,16 @@ static void sep(const char *title)
 /*To ensure you understood how it works, implement a WrongCat class that inherits
 from a WrongAnimal class. If you replace the Animal and the Cat by the wrong ones
 in the code above, the WrongCat should output the WrongAnimal sound.*/
-#include <iostream>
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+
+#define CYAN "\033[0;36m"
+#define RESET "\033[0m"
 
 void sep(std::string title) {
 
-	std::cout << "------------------------------------------------\n";
+	std::cout << CYAN << "------------------------------------------------\n";
 	std::cout << " " << title << "\n";
-	std::cout << "------------------------------------------------" << std::endl;
+	std::cout << "------------------------------------------------"  << RESET << std::endl;
 }
-
 
 int main()
 {
