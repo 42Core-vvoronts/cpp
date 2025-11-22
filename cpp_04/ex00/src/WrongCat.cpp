@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:54:22 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/16 14:31:37 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/20 21:57:36 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ WrongCat::WrongCat(const WrongCat &src) : WrongAnimal(src) {
 }
 
 WrongCat &WrongCat::operator=(const WrongCat &src) {
-	this->type = src.type;
+	if (this != &src) {
+		this->setType(src.getType()); 
+	}
 	return (*this);
 }
 

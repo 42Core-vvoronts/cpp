@@ -24,7 +24,7 @@ SRC 				= \
 						Dog.cpp \
 						Cat.cpp \
 						WrongAnimal.cpp \
-						WrongCat.cpp
+						WrongCat.cpp \
 
 # Object and Dependency files
 OBJ					= $(SRC:%.cpp=obj/%.o)

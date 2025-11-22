@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:45:47 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/16 14:31:56 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/20 21:57:26 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,21 @@ Animal::Animal(const Animal &src) {
 }
 
 Animal &Animal::operator=(const Animal &src) {
-	this->type = src.type;
+	if (this != &src) {
+		this->setType(src.getType()); 
+	}
 	return (*this);
+}
+
+
+std::string Animal::getType() const {
+	return (this->type);
+}
+
+void Animal::setType(const std::string& type) {
+	this->type = type; 
 }
 
 void Animal::makeSound() const {
 	std::cout << this->type << ": General animal sound" << std::endl;
-}
-
-std::string Animal::getType() const {
-	return (this->type);
 }

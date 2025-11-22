@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:53:30 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/16 12:54:38 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/20 21:45:08 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ class WrongCat : public WrongAnimal {
 		WrongCat& operator=(WrongCat const &src);
 		virtual ~WrongCat();
 
-		void	makeSound(void) const;
-
+		void	makeSound(void) const; // non-virtual
 };
 
 #endif
