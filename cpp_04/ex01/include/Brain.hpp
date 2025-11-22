@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 19:51:23 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/11/22 16:50:07 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/11/22 16:59:20 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Brain {
 		const std::string&	getIdea(unsigned int index) const;
 
 	private:
-		std::string		_ideas[100];
+		std::string			_ideas[100];
 };
 
 #endif
