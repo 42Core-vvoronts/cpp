@@ -1,0 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/09 18:15:00 by vvoronts          #+#    #+#             */
+/*   Updated: 2025/12/09 18:16:40 by vvoronts         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
+# include "AForm.hpp"
+# include <string>
+
+class ShrubberyCreationForm : public AForm {
+public:
+	ShrubberyCreationForm(const std::string &target);
+	ShrubberyCreationForm(const ShrubberyCreationForm &src);
+	~ShrubberyCreationForm();
+
+	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
+
+	virtual void execute(const Bureaucrat &executor) const;
+
+	std::string getTarget() const;
+
+private:
+	const std::string _target;
+};
+
+#endif
