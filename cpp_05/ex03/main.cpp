@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:52:38 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/12/10 19:48:23 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/12/10 19:58:45 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,12 @@ int main() {
 	}
 	std::cout << std::endl;
 
-	AForm *unknown = someRandomIntern.makeForm("unknown form", "Nobody");
-	if (unknown)
+	try {
+		AForm *unknown = someRandomIntern.makeForm("unknown form", "Nobody");
 		delete unknown;
+	} catch (std::exception &e) {
+		std::cout << "Caught intern error: " << e.what() << std::endl;
+	}
 
 	std::cout << std::endl;
 

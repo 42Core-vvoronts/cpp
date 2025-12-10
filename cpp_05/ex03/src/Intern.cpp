@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 19:40:00 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/12/10 19:43:52 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/12/10 19:57:57 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
 
-// Local helper creators to avoid big if/else chains.
+// Local helper creators to avoid big if/else chains
 static AForm *createShrubbery(const std::string &target) {
 	return new ShrubberyCreationForm(target);
 }
@@ -27,6 +27,10 @@ static AForm *createRobotomy(const std::string &target) {
 
 static AForm *createPardon(const std::string &target) {
 	return new PresidentialPardonForm(target);
+}
+
+const char * Intern::InvalidFormName::what() const throw() {
+	return "Intern Error: Invalid form name";
 }
 
 Intern::Intern() {}
@@ -48,6 +52,5 @@ AForm *Intern::makeForm(const std::string &formName, const std::string &target) 
 			return creators[i](target);
 		}
 	}
-	std::cout << "Intern cannot create form '" << formName << "' because it is unknown" << std::endl;
-	return 0;
+	throw InvalidFormName();
 }

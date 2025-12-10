@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 19:40:00 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/12/10 19:33:51 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/12/10 19:55:41 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ class Intern {
 		Intern &operator=(const Intern &src);
 
 		AForm *makeForm(const std::string &formName, const std::string &target) const;
+	private:
+		class InvalidFormName : public std::exception {
+			public:
+			virtual const char *what() const throw();
+		};
 };
 
 #endif
