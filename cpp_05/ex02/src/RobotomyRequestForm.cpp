@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 18:15:00 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/12/10 17:57:40 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/12/10 19:17:50 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
 	: AForm(formName, robotomyGradeToSign, robotomyGradeToExecute), _target(target) {
 }
 
+RobotomyRequestForm::RobotomyRequestForm()
+	: AForm(formName, robotomyGradeToSign, robotomyGradeToExecute), _target("default") {
+}
+
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src)
 	: AForm(src), _target(src._target) {
 }
@@ -35,7 +39,10 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &src) {
-	AForm::operator=(src);
+	if (this != &src) {	
+		AForm::operator=(src);
+		this->_target = src._target;
+	}
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 17:42:54 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/12/10 18:08:13 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/12/10 19:14:39 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ class AForm {
 
 		AForm &operator=(const AForm &src);
 
-		std::string getName() const;
-		bool isSigned() const;
-		unsigned int getGradeRequiredToSign() const;
-		unsigned int getGradeRequiredToExecute() const;
+		std::string			getName() const;
+		bool				isSigned() const;
+		unsigned int		getGradeRequiredToSign() const;
+		unsigned int		getGradeRequiredToExecute() const;
 
-		void beSigned(Bureaucrat &bureaucrat);
-		void execute(const Bureaucrat &executor) const;
+		void				beSigned(Bureaucrat &bureaucrat);
+		void				execute(const Bureaucrat &executor) const;
 
 		class GradeTooHighException : public std::exception {
 			virtual const char* what() const throw();
@@ -47,13 +47,13 @@ class AForm {
 		};
 
 	private:
-		const std::string _name;
-		const unsigned int _gradeRequiredToSign;
-		const unsigned int _gradeRequiredToExecute;
-		bool _isSigned;
+		const std::string	_name;
+		const unsigned int	_gradeRequiredToSign;
+		const unsigned int	_gradeRequiredToExecute;
+		bool				_isSigned;
 
-		void confirmValidGrade(unsigned int grade);
-		virtual void beExecuted() const = 0;
+		void				confirmValidGrade(unsigned int grade);
+		virtual void		beExecuted() const = 0;
 };
 
 std::ostream& operator<<(std::ostream& out, const AForm& f);

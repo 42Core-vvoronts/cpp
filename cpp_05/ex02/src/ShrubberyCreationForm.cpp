@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 18:15:00 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/12/10 17:27:11 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/12/10 19:18:26 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #include "Bureaucrat.hpp"
 #include <fstream>
 
-static const unsigned int shrubberyGradeToSign = 145;
-static const unsigned int shrubberyGradeToExecute = 137;
+static const int shrubberyGradeToSign = 145;
+static const int shrubberyGradeToExecute = 137;
+static const std::string formName = "ShrubberyCreationForm";
 static const std::string filePostfix = "_shrubbery";
 static const char* tree = "               ,@@@@@@@,\n"
 "       ,,,.   ,@@@@@@/@@,  .oo8888o.\n"
@@ -29,7 +30,11 @@ static const char* tree = "               ,@@@@@@@,\n"
 "jgs \\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_\n";
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
-	: AForm("ShrubberyCreationForm", shrubberyGradeToSign, shrubberyGradeToExecute), _target(target) {
+	: AForm(formName, shrubberyGradeToSign, shrubberyGradeToExecute), _target(target) {
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm()
+	: AForm(formName, shrubberyGradeToSign, shrubberyGradeToExecute), _target("default") {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src)
@@ -40,7 +45,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src) {
-	AForm::operator=(src);
+	if (this != &src) {	
+		AForm::operator=(src);
+		this->_target = src._target;
+	}
 	return *this;
 }
 

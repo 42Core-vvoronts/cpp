@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 18:15:00 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/12/10 17:17:31 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/12/10 19:19:00 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,18 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-static const unsigned int presidentialGradeToSign = 25;
-static const unsigned int presidentialGradeToExecute = 5;
+static const int presidentialGradeToSign = 25;
+static const int presidentialGradeToExecute = 5;
+static const std::string formName = "PresidentialPardonForm";
+static const std::string pardonMessage = " has been pardoned by Zaphod Beeblebrox";
+
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
-	: AForm("PresidentialPardonForm", presidentialGradeToSign, presidentialGradeToExecute), _target(target) {
+	: AForm(formName, presidentialGradeToSign, presidentialGradeToExecute), _target(target) {
+}
+
+PresidentialPardonForm::PresidentialPardonForm()
+	: AForm(formName, presidentialGradeToSign, presidentialGradeToExecute), _target("default") {
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src)
@@ -29,7 +36,10 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &src) {
-	AForm::operator=(src);
+	if (this != &src) {	
+		AForm::operator=(src);
+		this->_target = src._target;
+	}
 	return *this;
 }
 
@@ -38,5 +48,5 @@ std::string PresidentialPardonForm::getTarget() const {
 }
 
 void PresidentialPardonForm::beExecuted() const {
-	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	std::cout << this->_target << pardonMessage << std::endl;
 }
