@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:52:38 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/12/10 18:07:01 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/12/10 18:22:14 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main() {
 	std::cout << "*Creates a file <target>_shrubbery in the working directory and writes ASCII trees inside it.\n" << std::endl;
 
 	ShrubberyCreationForm shurb1("first");
+	std::cout << shurb1 << std::endl;
 	Bureaucrat alice("Alice", 137);
 	std::cout << "Alice grade: " << alice.getGrade() << std::endl;
 	alice.signForm(shurb1);

@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 18:15:00 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/12/10 17:17:28 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/12/10 18:09:19 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,18 @@
 # include <string>
 
 class PresidentialPardonForm : public AForm {
-public:
-	PresidentialPardonForm(const std::string &target);
-	PresidentialPardonForm(const PresidentialPardonForm &src);
-	~PresidentialPardonForm();
+	public:
+		PresidentialPardonForm(const std::string &target);
+		PresidentialPardonForm(const PresidentialPardonForm &src);
+		~PresidentialPardonForm();
 
-	PresidentialPardonForm &operator=(const PresidentialPardonForm &src);
+		PresidentialPardonForm &operator=(const PresidentialPardonForm &src);
 
-	std::string getTarget() const;
+		std::string getTarget() const;
 
-private:
-	const std::string _target;
-
-	virtual void beExecuted() const;
+	private:
+		const std::string _target;
+		virtual void beExecuted() const;
 };
 
 #endif
