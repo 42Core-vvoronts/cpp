@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 18:15:00 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/12/09 18:16:40 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/12/10 17:27:11 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,19 @@
 #include "Bureaucrat.hpp"
 #include <fstream>
 
-static const int shrubberyGradeToSign = 145;
-static const int shrubberyGradeToExecute = 137;
-static const char* tree = "    *\n   ***\n  *****\n *******\n*********\n   ***\n   ***\n";
+static const unsigned int shrubberyGradeToSign = 145;
+static const unsigned int shrubberyGradeToExecute = 137;
+static const std::string filePostfix = "_shrubbery";
+static const char* tree = "               ,@@@@@@@,\n"
+"       ,,,.   ,@@@@@@/@@,  .oo8888o.\n"
+"    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n"
+"   ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n"
+"   %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n"
+"   %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n"
+"   `&%\\ ` /%&'    |.|        \\ '|8'\n"
+"       |o|        | |         | |\n"
+"       |.|        | |         | |\n"
+"jgs \\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_\n";
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
 	: AForm("ShrubberyCreationForm", shrubberyGradeToSign, shrubberyGradeToExecute), _target(target) {
@@ -38,13 +48,8 @@ std::string ShrubberyCreationForm::getTarget() const {
 	return this->_target;
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
-	if (!this->getIsSigned())
-		throw AForm::GradeTooLowException();
-	if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
-	
-	std::string filename = this->_target + "_shrubbery";
+void ShrubberyCreationForm::beExecuted() const {
+	std::string filename = this->_target + filePostfix;
 	std::ofstream file(filename.c_str());
 	if (!file.is_open())
 		return;

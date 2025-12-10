@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 18:15:00 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/12/09 18:16:40 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/12/10 17:17:31 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-static const int presidentialGradeToSign = 25;
-static const int presidentialGradeToExecute = 5;
+static const unsigned int presidentialGradeToSign = 25;
+static const unsigned int presidentialGradeToExecute = 5;
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
 	: AForm("PresidentialPardonForm", presidentialGradeToSign, presidentialGradeToExecute), _target(target) {
@@ -37,11 +37,6 @@ std::string PresidentialPardonForm::getTarget() const {
 	return this->_target;
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat &executor) const {
-	if (!this->getIsSigned())
-		throw AForm::GradeTooLowException();
-	if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
-	
+void PresidentialPardonForm::beExecuted() const {
 	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

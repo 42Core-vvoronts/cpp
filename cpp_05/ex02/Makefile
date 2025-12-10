@@ -61,6 +61,7 @@ clean:
 	@echo "$(YELLOW)Cleaning $(NAME)..."
 	@$(RM) obj
 	@$(RM) dep
+	@$(RM) *_shrubbery
 	@echo "$(RED)$(NAME) has been cleaned$(RESET)"
 
 # Clean build files and executables
