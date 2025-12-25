@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 16:52:38 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/12/17 18:04:11 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/12/25 09:52:25 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ struct TestCase {
 static const TestCase testCases[] = {
 	{"    Printable Char", "*"},
 	{"    Two Printable Chars", "**"},
-	{"    Test 1", "-*"},
+	{"    Two Printable Chars", "-*"},
 	{"    Positive int", "42"},
 	{"    Negative int", "-42"},
 	{"    Float notation", "42.0f"},
@@ -51,8 +51,10 @@ int main(int argc, char** argv) {
             std::cout << testCases[i].description << ": " << testCases[i].literal << std::endl;
             std::cout << "----------------------------" << std::endl;
             ScalarConverter::convert(testCases[i].literal);
-            std::cout << "----------------------------" << std::endl;
+            std::cout << "\n----------------------------" << std::endl;
         }
+        std::cout << "\033[34m:) You did not provide any input, \nsome test cases were run\033[0m" << std::endl;
+        std::cout << "----------------------------" << std::endl;
     }
     return 0;
 }

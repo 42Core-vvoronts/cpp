@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.cpp                                        :+:      :+:    :+:   */
+/*   verify.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 19:14:20 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/12/17 19:28:14 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/12/25 09:31:59 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <cctype>
 #include <cmath>
 #include <cerrno>
+
+#define ERR_INVALID_INPUT "Error: invalid input "
 
 bool isValidChar(char c) { 
     return (std::isprint(c)); 

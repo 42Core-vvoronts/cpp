@@ -6,7 +6,7 @@
 /*   By: vvoronts <vvoronts@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 19:44:41 by vvoronts          #+#    #+#             */
-/*   Updated: 2025/12/17 19:45:53 by vvoronts         ###   ########.fr       */
+/*   Updated: 2025/12/25 09:27:25 by vvoronts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_type detectType(double& literal) {
         return CHAR;
     }
 }
-// }
+
 
 // // Helper to check for special double values
 // static bool isSpecialDouble(const std::string& literal) {
