@@ -16,7 +16,10 @@
 
 /**
  * @brief Searches for an integer in a given container.
- * @param c The container to search in.
+ * Function has to find the first occurrence of the second parameter in the first parameter
+ * If no occurrence is found, you can either throw an exception or return an error value of your choice
+ * 
+ * @param c The container T to search in.
  * @param i The integer to search for.
  * @return An iterator to the found integer.
  * @throws std::out_of_range if the integer is not found in the container.
@@ -24,9 +27,8 @@
 template <typename T>
 typename T::const_iterator easyfind(const T &c, const int i){
     typename T::const_iterator it;
-    // Use std::find to search for the integer in the container
     it = std::find(c.begin(), c.end(), i);
     if (it == c.end())
-        throw std::out_of_range("Item not found in container.");
+        throw std::out_of_range("Item was not found in container!");
     return it;
 }
