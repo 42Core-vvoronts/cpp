@@ -7,7 +7,7 @@ DEBUG				=	-g
 RM					=	rm -rf
 
 # Name of the output library
-NAME				=	ex02
+NAME				=	btc
 
 # Source directories
 VPATH				=	\
@@ -20,6 +20,9 @@ INCLUDE_DIRS		=	\
 # Source files
 SRC 				= \
 						main.cpp \
+						BitcoinExchange.cpp \
+						Database.cpp \
+						DataHandler.cpp \
 
 # Object and Dependency files
 OBJ					= $(SRC:%.cpp=obj/%.o)
