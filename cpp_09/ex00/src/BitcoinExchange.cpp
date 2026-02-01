@@ -2,7 +2,9 @@
 #include "DataHandler.hpp"
 #include <fstream>
 #include <iostream>
-#include <cstdlib>
+#include <algorithm> // for std::find_if
+#include <cstdlib>   // for std::exit, std::atof, std::strtod
+#include <ctime>     // for struct tm
 
 BitcoinExchange::BitcoinExchange() {}
 BitcoinExchange::~BitcoinExchange() {}
@@ -48,6 +50,7 @@ void BitcoinExchange::run(const std::string& inputPath) {
         DataHandler::trim(value);
 
         try {
+            // This line prevents the error on empty lines
             if (key.empty() && value.empty()) continue; // Skip empty lines
             if (key.empty() || value.empty()) 
                 throw std::string("bad input => " + line);

@@ -50,10 +50,14 @@ void Database::load(const std::string& filepath) {
  * empty string.
  */
 std::string Database::findClosestDate(const std::string& date) {
-    if (_data.empty() || date < _data.begin()->first) return "";
-    
+    if (_data.empty()) return "";
+
     std::map<std::string, std::string>::iterator it = _data.upper_bound(date);
-    if (it == _data.begin()) return it->first; 
+    
+    // If iterator is at begin, it means all dates in DB are > input date.
+    // No lower date exists.
+    if (it == _data.begin()) return ""; 
+    
     it--; 
     return it->first;
 }
@@ -69,6 +73,8 @@ float Database::getExchangeRate(const std::string& date) {
         return DataHandler::stringToFloat(_data[date]);
     }
     std::string closest = findClosestDate(date);
-    if (closest.empty()) return 0.0f; // Or handle error
+    if (closest.empty()) {
+        throw std::string("date too old, no data available => " + date);
+    }
     return DataHandler::stringToFloat(_data[closest]);
 }
