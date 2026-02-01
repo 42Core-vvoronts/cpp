@@ -1,47 +1,72 @@
+# Compiler and flags
+CPP					=	c++
+CPPFLAGS			=	-Wall -Wextra -Werror -std=c++98 -Wunreachable-code
+DEPFLAGS			=	-MMD -MF
+DEBUG				=	-g
+# PEDANT				=	-Wpedantic
+RM					=	rm -rf
 
-CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -MMD -MF 
-RM := rm -rf
+# Name of the output library
+NAME				=	RPN
 
-NAME := RPN 
+# Source directories
+VPATH				=	\
+						./src/: \
 
-INCLUDE_DIRS := \
-						./include/
+# Include directories
+INCLUDE_DIRS		=	\
+						./include \
 
-INCLUDE := $(addprefix -I,$(INCLUDE_DIRS))
+# Source files
+SRC 				= \
+						main.cpp \
+						RPN.cpp \
 
-SRC := \
-					./src/main.cpp \
-					./src/RPN.cpp \
+# Object and Dependency files
+OBJ					= $(SRC:%.cpp=obj/%.o)
+DEP					= $(SRC:%.cpp=dep/%.d)
 
-OBJ := $(patsubst ./src/%.cpp,./obj/%.o,$(SRC))
-DEP := $(patsubst ./src/%.cpp,./dep/%.d,$(SRC))
+INCLUDE				=	$(addprefix -I, $(INCLUDE_DIRS))
 
+# Make flags
+MFLAGS				=	 --no-print-directory -C
+
+# Build all targets
 all: $(NAME)
 
-$(NAME): $(OBJ) Makefile
-	$(CXX) $(OBJ) -o $@
-	@echo ""
+# Link mandatory object files
+$(NAME): $(OBJ)
+	@echo "$(YELLOW)Building $(NAME)..."
+	@$(CPP) $(OBJ) -o $@
+	@echo "$(GREEN)$(NAME) has been built"
 
-./obj/%.o: ./src/%.cpp | obj_dir dep_dir
-	$(CXX) $(CXXFLAGS) ./dep/$(@:obj/%.o=%.d) $(INCLUDE) -c $< -o $@
+# Compile mandatory object files
+obj/%.o: %.cpp | obj_dir dep_dir
+	@$(CPP) $(CPPFLAGS) $(INCLUDE) $(DEBUG) $(DEPFLAGS) dep/$(@:obj/%.o=%.d) -c $< -o $@ && printf "$(GRAY)Compiling: $(RESET)$(notdir $< \n)"
 
+# Create mandatory object directories
 obj_dir:
 	@mkdir -p obj
 
+# Create mandatory dependency directories
 dep_dir:
 	@mkdir -p dep
 
+# Clean build files
 clean:
-	$(RM) obj
-	$(RM) dep
+	@echo "$(YELLOW)Cleaning $(NAME)..."
+	@$(RM) obj
+	@$(RM) dep
+	@echo "$(RED)$(NAME) has been cleaned$(RESET)"
 
+# Clean build files and executables
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
+# Rebuild everything
 re: fclean all
 
-run: re
+test: re
 	@echo "--- RUN ---"
 	@echo ""
 	./$(NAME) "8 9 * 9 - 9 - 9 - 4 - 1 +" 
@@ -53,9 +78,16 @@ run: re
 	@echo ""
 	@make fclean
 
-test: leaks
+# Phony targets
+.PHONY: all clean fclean re test
+.DEFAULT_GOAL := all
 
-leaks:
-	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
-
+# Include the dependency files
 -include $(DEP)
+
+# set colors
+RED					= 	\033[0;31m
+GREEN				= 	\033[0;32m
+YELLOW				= 	\033[0;33m
+GRAY				= 	\033[0;37m
+RESET				= 	\033[0m
