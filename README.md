@@ -1,9 +1,6 @@
 
 # 42 C++ Modules
 
-> [!WARNING]
-> **This repository is a work in progress.** Some projects may be incomplete or contain errors.
-
 Each project is a deep dive into specific C++ features:
 
 *   **cpp_00:** Introduction to C++, namespaces, classes, member functions, and streams.
